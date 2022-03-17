@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import User from './User';
+import Profile from './Profile';
 function App() {
   const [name, setName] = useState('');
   const [terms, setTerms] = useState(false);
@@ -13,19 +13,7 @@ function App() {
 
   return (
     <div className="App">
-        <form onSubmit={getFormData}>
-            <input type="text" placeholder='name' onChange={(e)=>setName(e.target.value)} /><br /><br />
-            <select onChange={(e)=>setIntrest(e.target.value)}>
-              <option>Select</option>
-              <option>Marvel</option>
-              <option>new</option>
-            </select>
-            <br /><br />
-            <input type="checkbox" onChange={(e)=>setTerms(e.target.checked)} /> Terms
-            <br /><br />
-            <button type="submit">Submit</button>
-            <button>Clear</button>
-        </form>
+        <Profile />
     </div>
   );
 }
