@@ -1,20 +1,25 @@
 import { useState } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import { incNumber, decNumber} from './actions/index';
 
-import Profile from './Profile';
 function App() {
-  const [name, setName] = useState('');
-  const [terms, setTerms] = useState(false);
-  const [intrest, setIntrest] = useState('');
-  function getFormData(e) {
-    console.log(name,terms,intrest);
-    e.preventDefault();
-    
-  }
-
+  const myState = useSelector((state)=> state.changeTheNumber);
+  const dispatch = useDispatch();
   return (
-    <div className="App">
-        <Profile />
-    </div>
+    <>
+      <div>
+        <button onClick={() => dispatch(decNumber())}>
+          -
+        </button>
+        <form>
+        <input type="number" value={myState}/>
+        </form>
+        
+        <button onClick={() => dispatch(incNumber(2))}>
+          +
+        </button>
+      </div>
+    </>
   );
 }
 
